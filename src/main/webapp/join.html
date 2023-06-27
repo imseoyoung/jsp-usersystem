@@ -59,11 +59,21 @@
             background-color: #ED9595;
         }
     </style>
+    <script>
+        function validateForm() {
+            var password = document.forms["signupForm"]["password"].value;
+            
+            if (password.length <= 4 || !/^[A-Za-z]+$/.test(password)) {
+                alert("비밀번호는 4자리 이상의 영어 대소문자로 입력해주세요.");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>회원 가입</h1>
     
-    <form action="joinOk.jsp" method="POST">          
+    <form name="signupForm" action="joinOk.jsp" method="POST" onsubmit="return validateForm()">          
         <label for="username">아이디:</label>
         <input type="text" name="id"><br>
         

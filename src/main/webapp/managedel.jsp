@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-<h1>회원 가입 승인</h1>
+<h1>회원 탈퇴 승인</h1>
 <%
     UserDAO userDAO = new UserDAO();
     List<UserDTO> userList = userDAO.getUsersByStatus("일시정지");
@@ -76,11 +76,13 @@
         </tr>
         </thead>
         <tbody>
-        <% for (UserDTO user : userList) { %>
+        <% for (UserDTO user : userList) {
+            String phoneNumber = user.getPhone();
+        	String formattedPhone = "010-" + "X".repeat(4) + "-" + "X".repeat(4);%>
             <tr>
                 <td><%= user.getId() %></td>
                 <td><%= user.getName() %></td>
-                <td><%= user.getPhone() %></td>
+                <td><%= formattedPhone %></td>
                 <td><%= user.getEmail() %></td>
                 <td><%= user.getUserstatus() %></td>
                 <td>

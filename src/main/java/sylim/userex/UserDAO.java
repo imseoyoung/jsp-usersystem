@@ -52,6 +52,7 @@ public class UserDAO {
 
                     UserDTO user = new UserDTO(id, name, password, phone, email, userstatus, userrole);
                     userList.add(user);
+                     
                 }
             }
         } catch (SQLException e) {
